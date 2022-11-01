@@ -7,11 +7,11 @@ public class Vote{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="VOTE_ID")
+    @Column(name="VOTE_ID", nullable = false)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name="OPTION_ID")
+    @JoinColumn(name="OPTION_ID", nullable = false)
     private Options option;
 
     public Vote() {

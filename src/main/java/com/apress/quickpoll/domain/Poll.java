@@ -11,39 +11,21 @@ public class Poll {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="POLL_ID")
+    @Column(name="POLL_ID", nullable = false)
     private Long id;
 
-    @Column(name="QUESTION")
-    @NotEmpty
-
+    @Column(name="QUESTION", nullable = false)
+    @NotEmpty(message = "Question is a required field")
     private String question;
 
     @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="POLL_ID")
+    @JoinColumn(name="POLL_ID", nullable = false)
     @OrderBy
     @Size(min=2, max = 6)
     private Set<Options> options;
 
-//    public Poll(Long id, String question, Set<OptionA> options) {
-//        this.id = id;
-//        this.question = question;
-//        this.options = options;
-//    }
-
-
     public Poll() {
     }
-
-//    public Poll(Long id, String question, Set<Options> options) {
-//        this.id = id;
-//        this.question = question;
-//        this.options = options;
-//    }
-
-
-    // now lets create sets and gets
-
 
     public Long getId() {
         return id;
@@ -69,8 +51,6 @@ public class Poll {
 
         this.options = options;
     }
-    //we may need a to-string method as well
-
 
     @Override
     public String toString() {

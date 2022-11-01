@@ -23,7 +23,6 @@ public class PollController {
     @Autowired
     private PollRepository pollRepository;
 
-
     @GetMapping("/polls")
     public ResponseEntity<Iterable<Poll>> getAllPolls() {
         return pollService.getAllpolls();
@@ -39,10 +38,6 @@ public class PollController {
         return pollService.getPoll(pollId);
     }
 
-    //    @GetMapping(value = "/{id}")
-//    public ResponseEntity<Object> getCustomer(@PathVariable("id") long id) {
-//        return ResponseEntity.ok().body(pollService.getSinglePoll(id));
-//    }
     @PutMapping("/polls/{pollId}")
     public ResponseEntity<?> updatePoll(@RequestBody Poll poll, @PathVariable Long pollId) {
         return pollService.updatePoll(poll, pollId);
@@ -53,18 +48,5 @@ public class PollController {
     public ResponseEntity<?> deletePoll(@PathVariable Long pollId) {
         return pollService.deletePoll(pollId);
     }
-
-//    @RequestMapping(value="/polls/{pollId}", method=RequestMethod.PUT)
-//    public ResponseEntity<?> updatePoll(@RequestBody Poll poll, @PathVariable Long pollId) {
-//        // Save the entity
-//        Poll p = pollRepository.save(poll);
-//        return new ResponseEntity<>(HttpStatus.OK);
-//    }
-//    }
-
-//      @RequestMapping(value = "/locations/{id}", method = RequestMethod.PUT)
-//      public void updateLocation(@RequestBody Location location, @PathVariable String id) {
-//
-//         locationService.updateLocation(id, location);
 
 }

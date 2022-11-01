@@ -14,7 +14,7 @@ public class VoteController {
     @Autowired
     private VoteRepository voteRepository;
 
-    @RequestMapping(value="/polls/{pollId}/votes", method= RequestMethod.POST)
+    @PostMapping("/polls/{pollId}/votes")
     public ResponseEntity<?> createVote(@PathVariable Long pollId, @RequestBody Vote
             vote) {
         vote = voteRepository.save(vote);

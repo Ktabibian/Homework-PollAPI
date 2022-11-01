@@ -6,9 +6,9 @@ import javax.persistence.*;
 public class Options {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="OPTION_ID")
+    @Column(name="OPTION_ID", nullable = false)
     private Long id;
-    @Column(name="OPTION_VALUE")
+    @Column(name="OPTION_VALUE", nullable = false)
     private String value;
 
     public Options() {
